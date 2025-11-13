@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 
-export default function index() {
+export default function challenges() {
   return (
     <View
       style={{
@@ -9,7 +9,7 @@ export default function index() {
         alignItems: "center",
       }}
     >
-      <Text>bet on yourself, get rewarded</Text>
+      <Text>challenges tab</Text>
     </View>
   );
 }

@@ -1,35 +1,22 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import { useColorScheme } from "react-native";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function RootLayout() {
+    const scheme = useColorScheme();
+    const isDark = scheme === 'dark';
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
+    <Tabs screenOptions={{ headerShown: false,
+    tabBarStyle: {
+        backgroundColor: isDark ? "#111" : "#fff",
+        borderTopColor: isDark ? "#222" : "#e6e6e6",
+      },
+      tabBarActiveTintColor: isDark ? "#4dd0e1" : "#0b62ff",
+      tabBarInactiveTintColor: isDark ? "#9e9e9e" : "#777",
+    }}
+    >
+      <Tabs.Screen name="index" options={{ title: "home" }} />
+      <Tabs.Screen name="challenges" options={{ title: "challenges" }} />
+      <Tabs.Screen name="profile" options={{ title: "profile" }} />
     </Tabs>
-  );
+  )
 }
