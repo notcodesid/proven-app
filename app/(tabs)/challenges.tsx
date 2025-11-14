@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View, StatusBar } from "react-native";
 
 export default function challenges() {
   return (
@@ -7,9 +7,11 @@ export default function challenges() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#000",
       }}
     >
-      <Text>challenges tab</Text>
+      <StatusBar barStyle="light-content" />
+      <Text style={{ color: "#fff" }}>challenges tab</Text>
     </View>
   );
 }

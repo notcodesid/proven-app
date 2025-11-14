@@ -1,22 +1,58 @@
 import { Tabs } from "expo-router";
-import { useColorScheme } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function RootLayout() {
-    const scheme = useColorScheme();
-    const isDark = scheme === 'dark';
   return (
     <Tabs screenOptions={{ headerShown: false,
     tabBarStyle: {
-        backgroundColor: isDark ? "#111" : "#fff",
-        borderTopColor: isDark ? "#222" : "#e6e6e6",
+        backgroundColor: "#000",
+        borderTopWidth: 0,
+        elevation: 0,
+        shadowOpacity: 0,
       },
-      tabBarActiveTintColor: isDark ? "#4dd0e1" : "#0b62ff",
-      tabBarInactiveTintColor: isDark ? "#9e9e9e" : "#777",
+      tabBarActiveTintColor: "#FF5757",
+      tabBarInactiveTintColor: "#666",
     }}
     >
-      <Tabs.Screen name="index" options={{ title: "home" }} />
-      <Tabs.Screen name="challenges" options={{ title: "challenges" }} />
-      <Tabs.Screen name="profile" options={{ title: "profile" }} />
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "home",
+          tabBarIcon: ({ focused, color }) => (
+            <Ionicons
+              name={focused ? "home" : "home-outline"}
+              size={24}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="challenges"
+        options={{
+          title: "challenges",
+          tabBarIcon: ({ focused, color }) => (
+            <Ionicons
+              name={focused ? "trophy" : "trophy-outline"}
+              size={24}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "profile",
+          tabBarIcon: ({ focused, color }) => (
+            <Ionicons
+              name={focused ? "person" : "person-outline"}
+              size={24}
+              color={color}
+            />
+          ),
+        }}
+      />
     </Tabs>
   )
 }

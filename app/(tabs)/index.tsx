@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View, StatusBar } from "react-native";
 
 export default function index() {
   return (
@@ -7,9 +7,11 @@ export default function index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#000",
       }}
     >
-      <Text>bet on yourself, get rewarded</Text>
+      <StatusBar barStyle="light-content" />
+      <Text style={{ color: "#fff" }}>bet on yourself, get rewarded</Text>
     </View>
   );
 }
