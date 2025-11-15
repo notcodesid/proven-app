@@ -1,14 +1,16 @@
-import { Ionicons } from "@expo/vector-icons"
-import { View, Text, Pressable, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Image } from "react-native"
 
 export const Profile = () => {
     return (
         <View style={styles.topRow}>
         <View style={styles.profile}>
-          <Ionicons name="person-circle" size={36} color="#fff" />
+        <Image
+          source={{ uri: "https://pbs.twimg.com/profile_images/1981777608850149376/8z65B1zT_400x400.jpg" }}
+          style={{ width: 36, height: 36, borderRadius: 18 }}
+        />
           <View style={{ marginLeft: 8 }}>
-            <Text style={{ color: '#ffd' }}>👋 Hey</Text>
-            <Text style={{ color: '#fff', fontWeight: '700' }}>sidharth codes</Text>
+            <Text style={{ color: '#ffd' }}>👋 hi</Text>
+            <Text style={{ color: '#fff' }}>sidharth</Text>
           </View>
         </View>
       </View>
